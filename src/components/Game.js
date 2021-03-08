@@ -2,9 +2,9 @@ import React, { Component } from "react"
 import data from './dummydata'
 import axios from 'axios'
 
-const TOPIC_URL = 'http://localhost:3000/topics'
-const QUESTION_URL = 'http://localhost:3000/questions'
-const ANSWERS_URL = 'http://localhost:3000/answers'
+const TOPIC_URL = 'https://quiz-app-solid-adventure.herokuapp.com/topics'
+const QUESTION_URL = 'https://quiz-app-solid-adventure.herokuapp.com/questions'
+const ANSWERS_URL = 'https://quiz-app-solid-adventure.herokuapp.com/answers'
 
 
 class Game extends React.Component {
