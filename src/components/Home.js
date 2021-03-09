@@ -6,8 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Game from './Game'
 //import Game from './Game'
 
-// const TOPIC_URL = 'http://localhost:3000/topics'
-const TOPIC_URL = 'https://quiz-app-solid-adventure.herokuapp.com/topics'
+const TOPIC_URL = 'http://localhost:3000/topics'
 
 class Home extends React.Component{
   constructor(){
@@ -28,6 +27,9 @@ class Home extends React.Component{
   }
   //try and make game page load based on which topic is clicked
 
+
+
+
   // gameChanger = () => {
   //   let path =
   //   const history = useHistory()
@@ -43,22 +45,38 @@ class Home extends React.Component{
 ///need to pass this.state.t1 down to <Game />
   render(){
 
+    const topicsDiv = this.state.topics.map(t => {
+      console.log(this.state.topics)
+      return(
+        //<div>{t.title}</div>
+        <div>{t.title}</div>
+      )
+    })
+
+    const topicId = this.state.topics.map(t => {
+      console.log(this.state.topics)
+      return(
+        //<div>{t.title}</div>
+        <div>{t.id}</div>
+      )
+    })
+
     console.log('flag', this.state.topics)
     return(
       <div>
       //{JSON.stringify(this.state.topics[0])}
         <Header />
         <div>   { this.state.topics.length &&
-           <a href={`/game/${this.state.topics[0].id}`}>{this.state.topics[0].title}</a>
+           <a href={`/Game/${this.state.topics[0].id}`}>{this.state.topics[0].title}</a>
         }   </div>
         <div style={{margin: 20}}></div>
         <div></div>
+        <a href={`/Game/${topicId}`}>{topicsDiv}{topicId}</a>
+
       </div>
     )
   }
 }
-
-
 
 export default Home
 
@@ -68,4 +86,4 @@ export default Home
 
 //check components for props in dev tools
 
-//
+//   // how do we tell the href link to go to `/Game/topics/${params.topicId}/questions/${params.questionId}` - is that the right thing to do ????
