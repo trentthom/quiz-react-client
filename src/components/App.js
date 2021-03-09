@@ -16,7 +16,7 @@ class App extends React.Component{
         <div className="App">
           <Switch>
             <Route path='/' component={Home} exact />
-            <Route path='/Game' component={Game} />
+            <Route path='/Game/:topicId' component={Game} />
           </Switch>
         </div>
       </BrowserRouter>
@@ -24,3 +24,7 @@ class App extends React.Component{
   }
 }
 export default App;
+
+//re do route with params //
+
+// path="game/:topicId"
