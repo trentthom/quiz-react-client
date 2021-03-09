@@ -27,4 +27,4 @@ export default App;
 
 //re do route with params //
 
-path="game/:topicId"
+//path="game/:topicId"

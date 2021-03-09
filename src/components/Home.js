@@ -26,36 +26,27 @@ class Home extends React.Component{
 
     })
   }
-  //try and make game page load based on which topic is clicked
 
-
-
-
-  // gameChanger = () => {
-  //   let path =
-  //   const history = useHistory()
-  //   const handleClick1 = () => history.push('/Game')
-  // }
-
-  //
-
-
-
-
-
-///need to pass this.state.t1 down to <Game />
   render(){
 
-    console.log('flag', this.state.topics)
+    const topicsDiv = this.state.topics.map(t => {
+      console.log(this.state.topics)
+      return(
+        //<div>{t.title}</div>
+
+        <div>{t.title}</div>
+      )
+    })
+
+
     return(
       <div>
       //{JSON.stringify(this.state.topics[0])}
         <Header />
-        <div>   { this.state.topics.length &&
-           <a href={`/game/${this.state.topics[0].id}`}>{this.state.topics[0].title}</a>
-        }   </div>
+        <div> { this.state.topics.length &&
+           <a href={`/game/${this.state.topics[0].id}`}>{this.state.topics[0].title}</a>}
+        </div>
         <div style={{margin: 20}}></div>
-        <div></div>
       </div>
     )
   }
