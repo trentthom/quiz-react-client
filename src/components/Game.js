@@ -1,11 +1,11 @@
 import React, { Component } from "react"
 import axios from 'axios'
 
-// // const TOPIC_URL = 'http://localhost:3000/topics'
-// const QUESTION_URL = 'http://localhost:3000/questions'
-const QUESTION_URL = 'https://quiz-app-solid-adventure.herokuapp.com/questions'
-const ANSWERS_URL = 'https://quiz-app-solid-adventure.herokuapp.com/answers'
-// const ANSWERS_URL = 'http://localhost:3000/answers'
+//const TOPIC_URL = 'http://localhost:3000/topics'
+const QUESTION_URL = 'http://localhost:3000/questions'
+//const QUESTION_URL = 'https://quiz-app-solid-adventure.herokuapp.com/questions'
+//const ANSWERS_URL = 'https://quiz-app-solid-adventure.herokuapp.com/answers'
+const ANSWERS_URL = 'http://localhost:3000/answers'
 
 
 class Game extends React.Component {
@@ -23,6 +23,8 @@ class Game extends React.Component {
       this.handleClick = this.handleClick.bind(this)
   }
 
+  //^^^ We prob need to also put the answers in an empty array [] (or perhaps object {}???) so we can use it for any set of 4 Qs related to any Q
+
 //dynamically link the right questions to answers
   componentDidMount(){
     axios.get(QUESTION_URL).then((response) => {
@@ -32,7 +34,7 @@ class Game extends React.Component {
       this.setState({question: question})
 
       axios.get(ANSWERS_URL).then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         const ans1 = response.data[0].content
         const ans2 = response.data[1].content
         const ans3 = response.data[2].content
