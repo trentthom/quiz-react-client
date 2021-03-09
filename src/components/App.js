@@ -3,7 +3,7 @@ import Header from './Header'
 import Game from './Game'
 import Home from './Home'
 import axios from 'axios'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 class App extends React.Component{
   constructor(){
@@ -16,7 +16,7 @@ class App extends React.Component{
         <div className="App">
           <Switch>
             <Route path='/' component={Home} exact />
-            <Route path='/game' component={Game} />
+            <Route path='/Game' component={Game} />
           </Switch>
         </div>
       </BrowserRouter>

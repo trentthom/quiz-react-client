@@ -2,10 +2,11 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import Header from './Header'
 import { useHistory } from 'react-router-dom'
+import { Link } from "react-router-dom";
 //import Game from './Game'
 
-// const TOPIC_URL = 'http://localhost:3000/topics'
-const TOPIC_URL = 'https://quiz-app-solid-adventure.herokuapp.com/topics'
+const TOPIC_URL = 'http://localhost:3000/topics'
+// const TOPIC_URL = 'https://quiz-app-solid-adventure.herokuapp.com/topics'
 
 class Home extends React.Component{
   constructor(){
@@ -35,9 +36,6 @@ class Home extends React.Component{
   }
   //try and make game page load based on which topic is clicked
 
-
-
-
   // gameChanger = () => {
   //   let path =
   //   const history = useHistory()
@@ -57,6 +55,8 @@ class Home extends React.Component{
     )
   }
 }
+
+
 
 export default Home
 
