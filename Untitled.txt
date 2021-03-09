@@ -1,3 +1,46 @@
-how do we pass info down without rendering a component
+we need to look at the react router docs to find a way to use params from the url
 
-look at tic tac toe
+topicId is the name of our params as we declared that in the app BrowserRouter
+
+using that id make a req to the back end for q's related to that topic
+
+
+*we don't have functionality on the backend to make a req to  GET  questions/:topicId/
+
+** and as the q's and a's are at different entities we need a way to do the above for answers also
+
+** make the back end fetch both q's and a's from one request -- we don't have to strictly do this
+
+
+------Will would recommend the back end to the aggregation ie find the right q's and a's
+
+
+make the back end loop through the questions and fetch the relevant answers!!!
+
+//////////////////////after we get the above sorted
+
+/questions will be loaded ALL of them (for the topic) and also the answers....then have to find a way to increment by one to dispplay the next q's and a's into state.....
+
+
+.......Will's example of state on Game
+
+questions: [{
+  ... fields like id
+  text: 'what color is the sky?'
+  answers: [{
+     text: 'gray',
+     correct: true/false
+   }]
+}]
+
+
+
+
+
+
+
+
+
+b4 nat wakes up
+
+make the functionality for the front end
