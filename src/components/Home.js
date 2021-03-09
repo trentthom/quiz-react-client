@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Game from './Game'
 //import Game from './Game'
 
-const TOPIC_URL = 'http://localhost:3000/topics'
+// const TOPIC_URL = 'http://localhost:3000/topics'
+const TOPIC_URL = 'https://quiz-app-solid-adventure.herokuapp.com/topics'
 
 class Home extends React.Component{
   constructor(){
