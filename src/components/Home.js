@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import Header from './Header'
 import { useHistory } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Game from './Game'
 //import Game from './Game'
 
 const TOPIC_URL = 'http://localhost:3000/topics'
@@ -10,26 +12,17 @@ class Home extends React.Component{
   constructor(){
     super()
     this.state = {
-      t1: '',
-      t2: '',
-      t3: '',
-      t4: '',
-      t5: '',
-      t6: '',
-      t7: '',
-      t8: '',
-      t9: '',
-      t10: ''
+      topics: []
     }
   }
   ///need to figure a way to get all topic data back and then spilt that out onto topic buttons and then pass that to game page
   // find a way to make it dynamic based upon how many topics we have. ie. more topic buttons appear when we add more topics
   componentDidMount(){
+    console.log(this.state)
     axios.get(TOPIC_URL).then((response) => {
-      const t1 = response.data[0].title
-      const t2 = response.data[1].title
-      this.setState({t1: t1})
-      this.setState({t2: t2})
+      console.log('json data',response.data)
+      this.setState({topics: response.data})
+
     })
   }
   //try and make game page load based on which topic is clicked
@@ -43,14 +36,24 @@ class Home extends React.Component{
   //   const handleClick1 = () => history.push('/Game')
   // }
 
+  //
+
+
+
+
 
 ///need to pass this.state.t1 down to <Game />
   render(){
+
+    console.log('flag', this.state.topics)
     return(
       <div>
+      //{JSON.stringify(this.state.topics[0])}
         <Header />
-        <div onClick={this.gameChanger} style={{margin: 20}}>   {this.state.t1}    </div>
-        <div style={{margin: 20}}>{this.state.t2}</div>
+        <div>   { this.state.topics.length &&
+           <a href={`/game/${this.state.topics[0].id}`}>{this.state.topics[0].title}</a>
+        }   </div>
+        <div style={{margin: 20}}></div>
         <div></div>
       </div>
     )

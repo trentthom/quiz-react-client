@@ -1,0 +1,3 @@
+how do we pass info down without rendering a component
+
+look at tic tac toe
