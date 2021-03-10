@@ -10,6 +10,10 @@ const data = [
 
 export default data
 
-// const data = [
-//   {q1: 'this?'}
+
+
+// [
+//   {question:'something?',answers:[a1,a2,a3,a4]}, //this would be index 0
+//   {},//this would be index 1
+//   {}  //this would be index 2
 // ]
