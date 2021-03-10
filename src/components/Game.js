@@ -13,7 +13,8 @@ class Game extends Component {
     super()
       this.state = {
         gameData: [],
-        guess: ''
+        guess: '',
+        chosen: ''
       }
       this.handleClick = this.handleClick.bind(this)
   }
@@ -29,11 +30,12 @@ class Game extends Component {
   }
 
   handleClick(e){
-    console.log(e)
     const guess = e.target.outerText
-    console.log('button value:',guess)
-    this.setState({guess: guess})
-
+    const chosen = 'Your guess:'
+    if (this.state.guess === ''){
+      this.setState({guess: guess})
+      this.setState({chosen: chosen}) ////set timer and then fetch next index (next question)
+    }
   }
 
   render() {
@@ -49,7 +51,7 @@ class Game extends Component {
           <button onClick={this.handleClick}>4</button>
         </div>
 
-        <div style={{textAlign: 'center', marginTop: '30px'}}>{this.state.guess}</div>
+        <div style={{textAlign: 'center', marginTop: '30px'}}>{this.state.chosen}{this.state.guess}</div>
       </div>
     )
   }
