@@ -25,11 +25,12 @@ class Home extends React.Component{
     const topicLinks = this.state.topics.map(t => {
       return(
         <div key={t.id}>
-          <a href={`/game/${t.id}`}>{t.title}</a>
+          <a href={`/questions/${t.id}`}>{t.title}</a>
         </div>
       )
     })
     return(
+
       <div>
         <Header />
         {topicLinks}
