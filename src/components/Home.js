@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Game from './Game'
 
-const TOPIC_URL = 'http://localhost:3000/topics'
+const TOPIC_URL = 'http://localhost:3000/topics.json'
 
 class Home extends React.Component{
   constructor(){
@@ -25,7 +25,7 @@ class Home extends React.Component{
     const topicLinks = this.state.topics.map(t => {
       return(
         <div key={t.id}>
-          <a href={`/questions/${t.id}`}>{t.title}</a>
+          <a href={`/topics/${t.id}`}>{t.title}</a>
         </div>
       )
     })

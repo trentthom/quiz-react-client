@@ -2,30 +2,65 @@ import React, { Component } from "react"
 import axios from 'axios'
 import data from './dummydata'
 import Header from './Header'
-const ANSWERS_URL = 'http://localhost:3000/answers'
+// const ANSWERS_URL = 'http://localhost:3000/answers'
 
 
 //const QUESTION_URL = 'https://quiz-app-solid-adventure.herokuapp.com/questions'
 //const ANSWERS_URL = 'https://quiz-app-solid-adventure.herokuapp.com/answers'
 
+const Question = (props) => {
+  return (
+
+    <div>{props.question}</div>
+
+  )
+}
+const Answers = (props) => {
+  return (
+    props.answers.map(a => {
+        return (
+          <button onClick={props.handleClick}>{a.content}</button>
+        )
+    })
+  )
+}
+
 class Game extends Component {
   constructor(props) {
     super()
-      this.state = {
-        gameData: [],
+    this.state = {
+        question: '',
+        answers: [],
+        topic: '',
         guess: '',
-        chosen: ''
+        chosen: '',
+        score: 0,
+        questionNumber: 0
       }
       this.handleClick = this.handleClick.bind(this)
+      this.testingChangeQuestion = this.testingChangeQuestion.bind(this)
   }
 
+  componentDidUpdate(){
+    const path = this.props.location.pathname
+    const TOPIC_URL = `http://localhost:3000${path}`
+    const questionNumber = this.state.questionNumber
+    axios.get(TOPIC_URL).then((response) => {
+      console.log(response)
+      const data = response.data
+      this.setState({topic: data.title, question: data.questions[questionNumber].content, answers: data.questions[questionNumber].answers}) ////loads data into state
+      console.log('flag2', this.state.gameData);
+    })
+  }
   componentDidMount(){
     const path = this.props.location.pathname
-    const QUESTION_URL = `http://localhost:3000${path}`
-    axios.get(QUESTION_URL).then((response) => {
+    const TOPIC_URL = `http://localhost:3000${path}`
+    const questionNumber = this.state.questionNumber
+    axios.get(TOPIC_URL).then((response) => {
       console.log(response)
-      this.setState({gameData: response}) ////loads data into state
-
+      const data = response.data
+      this.setState({topic: data.title, question: data.questions[questionNumber].content, answers: data.questions[questionNumber].answers}) ////loads data into state
+      console.log('flag2', this.state.gameData);
     })
   }
 
@@ -38,20 +73,32 @@ class Game extends Component {
     }
   }
 
+  testingChangeQuestion(e) {
+    const question = this.state.questionNumber +1
+    this.setState({questionNumber: question })
+  }
+
   render() {
+    console.log('flag', this.state.gameData);
+
+    const topicAnswer = this.state.answers.map(a => {
+      return(
+        <button onClick={this.handleClick}>{a.content}</button>
+      )
+    })
+
     return(
       <div>
       <Header />
-        <div>question</div>
+      <div>{ this.state.topic }</div>
+        <Question question={this.state.question} />
 
         <div style={{backgroundColor: 'red'}}className="container">
-          <button onClick={this.handleClick}>1</button>
-          <button onClick={this.handleClick}>2</button>
-          <button onClick={this.handleClick}>3</button>
-          <button onClick={this.handleClick}>4</button>
+          <Answers answers={this.state.answers} click={this.handleClick} />
         </div>
 
         <div style={{textAlign: 'center', marginTop: '30px'}}>{this.state.chosen}{this.state.guess}</div>
+        <button onClick={this.testingChangeQuestion}>some text</button>
       </div>
     )
   }
