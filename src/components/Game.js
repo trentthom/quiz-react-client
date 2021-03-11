@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import axios from 'axios'
-import data from './dummydata'
 import Header from './Header'
 // const ANSWERS_URL = 'http://localhost:3000/answers'
+
 
 
 //const QUESTION_URL = 'https://quiz-app-solid-adventure.herokuapp.com/questions'
@@ -64,14 +64,16 @@ class Game extends Component {
     })
   }
 
+
   handleClick(e){
     const guess = e.target.outerText
     const chosen = 'Your guess:'
     if (this.state.guess === ''){
       this.setState({guess: guess})
-      this.setState({chosen: chosen}) ////set timer and then fetch next index (next question)
+      this.setState({chosen: chosen}) //// time out 3 secs then fetch next index (next question) from state maybe this.state.gameData + 1
+    //setTimeout(function(){ this.setState({gameData: 123}); }, 3000);//a way to bring in the next q and a's
     }
-  }
+    this.setState({qIdX: this.state.qIdX + 1}) //TODO conditional chnage header to say ur done after last question! put this in a different button
 
   testingChangeQuestion(e) {
     const question = this.state.questionNumber +1
@@ -96,6 +98,8 @@ class Game extends Component {
         <div style={{backgroundColor: 'red'}}className="container">
           <Answers answers={this.state.answers} click={this.handleClick} />
         </div>
+        </>
+        }
 
         <div style={{textAlign: 'center', marginTop: '30px'}}>{this.state.chosen}{this.state.guess}</div>
         <button onClick={this.testingChangeQuestion}>some text</button>
@@ -106,29 +110,7 @@ class Game extends Component {
 
 export default Game
 
-//
-// componentDidMount(){
-//   axios.get(QUESTION_URL).then((response) => {
-//     console.log(response.data)
-//     const question = response.data[0].content
-//     //console.log(question)
-//     this.setState({question: question})
-//
-//     axios.get(ANSWERS_URL).then((response) => {
-//       console.log(response.data)
-//       const ans1 = response.data[0].content
-//       const ans2 = response.data[1].content
-//       const ans3 = response.data[2].content
-//       const ans4 = response.data[3].content
-//       //const correct
-//       this.setState({ans1: ans1})
-//       this.setState({ans2: ans2})
-//       this.setState({ans3: ans3})
-//       this.setState({ans4: ans4})
-//       //this.setState
-//     })
-//   })
-// }
+//need something on state...maybe current question index
 
-
-//<button value={this.state.ans4} id='button4' onClick={this.handleClick} style={{lineHeight: '100px'}}>{this.state.ans4}</button>
+//conditionally show a button to increnment the qidx by one
+//reset the guess for the next answer
