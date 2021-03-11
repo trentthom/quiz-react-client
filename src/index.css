@@ -1,17 +1,143 @@
-body {
-  margin: 0 auto;
-  max-width: 1000px;
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap');
+
+html {
+  background: url(killbill2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-.container{
+body {
+  margin: 0 auto;
+  max-width: 960px;
+  /* background-color: #F8B71D; */
+}
+
+h1 {
+  margin-top: 10px;
+  margin-bottom: -10px;
+  margin-left: 60px;
+  font-size: 9.5em;
+  color: #000000;
+  font-family: 'Anton', sans-serif;
+  /* background-color: #003049; */
+}
+
+#header {
+  /* position: absolute; */
+  padding: -400px;
+}
+
+h2 {
+  margin-left: 60px;
+  color: #D61A1F;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 4em;
+  animation-duration: 2s;
+animation-name: bounceIn;
+}
+
+h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.4em;
+  margin-left: 65px;
+}
+
+a {
+	text-decoration: none;
+  color: #000000;
+}
+
+/* .container{
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   column-gap: 10px;
   row-gap: 15px;
-}
-
+} */
+/*
 .question {
   text-align: center;
+} */
+
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#answers {
+  font-family: 'Bebas Neue', cursive;
+  color: #D61A1F;
+  font-size: 1.7em;
+  display: grid;
+}
+
+#answersB {
+  display: grid;
+  margin-left: 100px;
+}
+
+#topicButton {
+  padding: 25px;
+  margin-bottom: 25px;
+  margin-left: 40px;
+  font-size: 2em;
+  font-weight: bolder;
+  border: solid;
+  border-color: #000000;
+  border-radius: 10px;
+  width: 75%;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  position: sticky;
+}
+
+#questionButton {
+  /* padding: 25px; */
+  margin-top: 60px;
+  margin-left: 700px;
+  margin-bottom: 40px;
+  font-size: 1em;
+  width: 135px;
+  height: 60px;
+  border: solid;
+  border-color: #D61A1F;
+  background-color: #D61A1F;
+  border-radius: 10px;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  color: white;
+}
+
+.grow:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+}
+
+button:focus {
+  outline:0;
+}
+
+@keyframes bang {
+  from {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
 }

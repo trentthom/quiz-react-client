@@ -6,8 +6,8 @@ class Header extends Component {
   }
   render() {
     return(
-      <div>
-        <h1>this is a header</h1>
+      <div id="heading">
+        <h1 id="header">NINJA TRIVIA</h1>
       </div>
     )
   }

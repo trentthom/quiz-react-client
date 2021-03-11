@@ -24,7 +24,7 @@ class Home extends React.Component{
   render(){
     const topicLinks = this.state.topics.map(t => {
       return(
-        <div key={t.id}>
+        <div class="grow" id="topicButton" key={t.id}>
           <a href={`/topics/${t.id}`}>{t.title}</a>
         </div>
       )
@@ -32,7 +32,12 @@ class Home extends React.Component{
     return(
 
       <div>
+        <div>
         <Header />
+        </div>
+        <div>
+        <h2>Pick a topic to start playing!</h2>
+        </div>
         {topicLinks}
       </div>
     )

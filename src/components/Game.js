@@ -46,10 +46,8 @@ class Game extends Component {
     const TOPIC_URL = `http://localhost:3000${path}`
     const questionNumber = this.state.questionNumber
     axios.get(TOPIC_URL).then((response) => {
-      console.log(response)
       const data = response.data
       this.setState({topic: data.title, question: data.questions[questionNumber].content, answers: data.questions[questionNumber].answers}) ////loads data into state
-      console.log('flag2', this.state.gameData);
     })
   }
   componentDidMount(){
@@ -57,52 +55,47 @@ class Game extends Component {
     const TOPIC_URL = `http://localhost:3000${path}`
     const questionNumber = this.state.questionNumber
     axios.get(TOPIC_URL).then((response) => {
-      console.log(response)
       const data = response.data
       this.setState({topic: data.title, question: data.questions[questionNumber].content, answers: data.questions[questionNumber].answers}) ////loads data into state
-      console.log('flag2', this.state.gameData);
     })
   }
-
 
   handleClick(e){
     const guess = e.target.outerText
     const chosen = 'Your guess:'
     if (this.state.guess === ''){
       this.setState({guess: guess})
-      this.setState({chosen: chosen}) //// time out 3 secs then fetch next index (next question) from state maybe this.state.gameData + 1
-    //setTimeout(function(){ this.setState({gameData: 123}); }, 3000);//a way to bring in the next q and a's
+      this.setState({chosen: chosen})
     }
     this.setState({qIdX: this.state.qIdX + 1}) //TODO conditional chnage header to say ur done after last question! put this in a different button
-
-  testingChangeQuestion(e) {
+  }
+  testingChangeQuestion(e){
     const question = this.state.questionNumber +1
     this.setState({questionNumber: question })
   }
 
   render() {
-    console.log('flag', this.state.gameData);
-
     const topicAnswer = this.state.answers.map(a => {
       return(
-        <button onClick={this.handleClick}>{a.content}</button>
+        <div>{a.content}</div>
       )
     })
 
     return(
       <div>
       <Header />
-      <div>{ this.state.topic }</div>
-        <Question question={this.state.question} />
+      <h2>Topic: { this.state.topic }</h2>
+        <h3><Question question={this.state.question} /></h3>
+        <ul id="answers">
+        <li id="answersB">
+          <div>{topicAnswer}</div>
+        </li>
+        </ul>
 
-        <div style={{backgroundColor: 'red'}}className="container">
-          <Answers answers={this.state.answers} click={this.handleClick} />
-        </div>
-        </>
-        }
 
-        <div style={{textAlign: 'center', marginTop: '30px'}}>{this.state.chosen}{this.state.guess}</div>
-        <button onClick={this.testingChangeQuestion}>some text</button>
+
+        <div>{this.state.chosen}{this.state.guess}</div>
+        <button id="questionButton" onClick={this.testingChangeQuestion}>Next Question</button>
       </div>
     )
   }
