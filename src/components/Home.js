@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Game from './Game'
 
-const TOPIC_URL = 'http://localhost:3000/topics.json'
-
+// const TOPIC_URL = 'http://localhost:3000/topics.json'
+const TOPIC_URL = 'https://quiz-app-solid-adventure.herokuapp.com/topics.json'
 class Home extends React.Component{
   constructor(){
     super()
