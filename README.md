@@ -2,7 +2,7 @@
 
 [Create React App](https://quiz-app-solid-adventure.herokuapp.com/).
 
-##Team
+## Team
 
 - Natalie Pauchard
 - Trent Thompson
