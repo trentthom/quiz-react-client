@@ -1,6 +1,6 @@
 # Ninja Trivia
 
-[Create React App](https://quiz-app-solid-adventure.herokuapp.com/).
+[Ninja Trivia](https://quiz-app-solid-adventure.herokuapp.com/).
 
 ## Team
 
