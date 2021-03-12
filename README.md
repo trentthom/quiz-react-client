@@ -1,6 +1,6 @@
 # Ninja Trivia
 
-[Ninja Trivia](https://quiz-app-solid-adventure.herokuapp.com/).
+[Ninja Trivia](https://quiz-app-front-end.herokuapp.com/)
 
 ## Team
 
